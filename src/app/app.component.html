@@ -1,4 +1,4 @@
-
+<div class="container">
 <div class="jumbotron">
   <div style="text-align:center">
     <h1>{{ title }} </h1>
@@ -6,27 +6,26 @@
 </div> 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">GitHub</a>
+  <a class="navbar-brand" href="#">HOME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav"> 
       <li>
-        <a class="nav-item nav-link" >Home</a>
+        <a class="nav-item nav-link" routerLink='profile'>SEARCH</a>
       </li>
-      
       <li>
-        <a class="nav-item nav-link" >Repositories</a>
+        <a class="nav-item nav-link" routerLink='user'>USER</a>
       </li>
+          
     </div>
   </div>
-</nav>
+</nav> 
+
+</div>
 
 
-<form class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form> 
+<!-- <app-profile></app-profile> -->
 
 <router-outlet></router-outlet> 
