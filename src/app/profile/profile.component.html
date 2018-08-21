@@ -1,3 +1,54 @@
-<p>
-  profile works!
-</p>
+<div class="container">
+<form action="" class="search-form" class="card-panel teal lighten-2" >
+  <h4 class="black-text">Search Github Username</h4>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Enter username" [(ngModel)]="username" name="username" (keyup)="findProfile()">
+  </div>
+</form>
+
+<div *ngIf="profile">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {{profile.name}} <small>{{profile.login}}</small>
+      <span *ngIf="profile.company">,  Works at{{profile.company}}</span>
+      {{profile.location}}
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-3">
+          <img src= "{{profile.avatar_url}}"  alt="Profile Image">
+        </div>
+        <div class="col-sm-5">
+          <ul class="list-group">
+            <li class="list-group-item" *ngIf="profile.bio">{{profile.bio}}</li>
+            <li class="list-group-item" *ngIf="profile.hirable">Available for hire </li>
+            <li class="list-group-item" *ngIf="profile.blog">{{profile.blog}}</li>
+            <li class="list-group-item" *ngIf="profile.email">{{profile.email}}</li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <p>
+            <button class="btn btn-default btn-sm" >{{profile.public_repos}}Public Repos</button>
+            <button class="btn btn-primary btn-sm" >{{profile.followers}}Followers</button>
+            <button class="btn btn-success btn-sm" >{{profile.following}}Following</button>
+            <button class="btn btn-info btn-sm" >{{profile.public_gists}}Public gists</button>
+          </p>
+          <p>
+            <a href="{{profile.html_url}}" class="btn btn-sm btn-warning" target="_blank">View profile on Github</a>
+          </p>
+          <div class="panel pmoduleanel-default">
+            <div class="panelmodule-heading">
+              <h3 class="panemodulel-title">REPOSITORIES</h3>
+            </div>
+            <div class="panelmodule-body" *ngFor="let repo of repos" index= i>
+              <p>
+                {{repo.name}}  <a href = "{{repo.html_url}}" target= "_blank">View project </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

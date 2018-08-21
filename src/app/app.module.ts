@@ -1,32 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
+import {RoutingModule} from './routing/routing.module';
 
-
-import { UserServicesService} from './user-services.service';
+import { ProfileService } from '../service/profile.service';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
-import {HttpClientModule} from '@angular/common/http';
+import { UserComponent } from './user/user.component';
 
-// const routes:Routes=[
-//   {path:},
-//   {path:}
-// ]
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
+    UserComponent,
+
   ],
   imports: [
     BrowserModule,
-    // RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpModule,
+    FormsModule,
+    RoutingModule
 
 
   ],
-  providers: [UserServicesService],
+  providers: [ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
