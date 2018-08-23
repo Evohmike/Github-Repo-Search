@@ -1,0 +1,21 @@
+.repos{
+  color: orangered;
+  text-decoration-line: underline;
+  font-size: 25px;
+}
+.repo{
+  color: whitesmoke;
+}
+.description{
+  color: whitesmoke;
+  font-size: 18px;
+}
+.creation{
+  color: whitesmoke;
+}
+::placeholder{
+  color: black;
+}
+#form{
+  width: 30%;
+}

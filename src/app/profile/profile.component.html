@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-fluid">
 <form action="" class="search-form" class="card-panel teal lighten-2" >
-  <h4 class="black-text">Search Github Username</h4>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Enter username" [(ngModel)]="username" name="username" (keyup)="findProfile()">
+    <br>
+    <input type="text" class="form-control" placeholder="Enter username" id="form" [(ngModel)]="username" name="username" (keyup)="findProfile()">
   </div>
 </form>
 
@@ -29,23 +29,53 @@
         <div class="col-sm-4">
           <p>
             <button class="btn btn-default btn-sm" >{{profile.public_repos}}Public Repos</button>
+            &nbsp;
             <button class="btn btn-primary btn-sm" >{{profile.followers}}Followers</button>
+            &nbsp;
             <button class="btn btn-success btn-sm" >{{profile.following}}Following</button>
+            &nbsp;
             <button class="btn btn-info btn-sm" >{{profile.public_gists}}Public gists</button>
           </p>
           <p>
-            <a href="{{profile.html_url}}" class="btn btn-sm btn-warning" target="_blank">View profile on Github</a>
+            <a href="{{profile.html_url}}" class="btn btn-sm btn-danger" target="_blank">View profile on Github</a>
           </p>
-          <div class="panel pmoduleanel-default">
-            <div class="panelmodule-heading">
-              <h3 class="panemodulel-title">REPOSITORIES</h3>
+          <!-- <div class="panel panel-default">
+            <div class="panel panel-heading">
+              <h3 class="panel panel-title">REPOSITORIES</h3>
             </div>
-            <div class="panelmodule-body" *ngFor="let repo of repos" index= i>
-              <p>
-                {{repo.name}}  <a href = "{{repo.html_url}}" target= "_blank">View project </a>
+            <div class="panel panel-body" *ngFor="let repo of repos" index= i>
+              <p class="repos">
+                {{repo.name}}  
               </p>
             </div>
-          </div>
+          </div> -->
+
+          <div class="panel panel-success panel">
+              <div class="panel-heading heading">
+                <h3 class="panel-title" class="repo">REPOSITORIES</h3>
+              </div>
+              <div class="panel-body" *ngFor="let repo of repos" index= i>
+                <p class="clearfix">
+                  <span class="repos"> {{repo.name}} </span>
+                  <br>
+                  <span class="description" *ngIf="repo.description"><b>*</b> {{repo.description}}</span>
+                </p>
+
+
+
+                <p class="creation">Date created: &nbsp;  <b>{{repo.created_at|date}}</b></p>
+                <p class="creation">Date of update: &nbsp;   <b>{{repo.updated_at|date}}</b></p>
+                <a href="{{repo.html_url}}" target="_blank" class="btn btn-sm btn-warning pull-right buttons">View this project</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{repo.homepage}}" target="_blank" *ngIf="repo.homepage" class="btn btn-sm btn-success pull-right buttons">View Live Page</a>
+                <br>
+                <br>
+
+
+              </div>
+            </div>
+
+
+
+
         </div>
       </div>
     </div>
